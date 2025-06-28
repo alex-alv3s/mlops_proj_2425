@@ -1,0 +1,24 @@
+target_column: "stroke"
+to_feature_store: True
+test_fraction: 0.2
+random_state: 2025
+run_name: "full_project"
+use_feature_selection: False
+feature_selection: "rfe+lasso"
+model_name: "bank"
+baseline_model_params_random_forest:
+  n_estimators: 100
+  max_depth: 6
+  max_features: 20
+  random_state: 2025
+hyperparameters:
+  RandomForestClassifier:
+    n_estimators: [100, 250]
+    max_depth: [6, 12]
+  GradientBoostingClassifier:
+    learning_rate: [0.001, 0.1]
+    n_estimators: [100]
+  XGBClassifier:
+    n_estimators: [100, 200]
+    max_depth: [3, 6]
+    learning_rate: [0.001, 0.1]
